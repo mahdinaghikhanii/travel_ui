@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../model/travel.dart';
-import '../widgets/fade_animation.dart';
 
 class DetailView extends StatefulWidget {
   final int id;
@@ -93,168 +92,153 @@ class _DetailViewState extends State<DetailView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FadeAnimation(
-                    delay: .1,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          travelList[widget.id].name,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/star.png",
-                              width: 30,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        travelList[widget.id].name,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/star.png",
+                            width: 30,
+                          ),
+                          Text(
+                            travelList[widget.id].rating.toString(),
+                            style: const TextStyle(
+                              fontSize: 16.0,
                             ),
-                            Text(
-                              travelList[widget.id].rating.toString(),
-                              style: const TextStyle(
-                                fontSize: 16.0,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
+                          )
+                        ],
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  FadeAnimation(
-                    delay: .2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Icon(
-                              Icons.account_balance_wallet,
-                              color: Color(0xff8f297f),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                  text: r'$',
-                                  style: TextStyle(
-                                    color: Colors.black87.withOpacity(.5),
-                                  ),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                      text:
-                                          travelList[widget.id].cost.toString(),
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                      ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Icon(
+                            Icons.account_balance_wallet,
+                            color: Color(0xff8f297f),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                                text: r'$',
+                                style: TextStyle(
+                                  color: Colors.black87.withOpacity(.5),
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text: travelList[widget.id].cost.toString(),
+                                    style: const TextStyle(
+                                      color: Colors.black,
                                     ),
-                                  ]),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Image.asset(
-                              'assets/images/pin.png',
-                              width: 20,
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                  text: travelList[widget.id].location,
-                                  style: TextStyle(
-                                    color: Colors.black87.withOpacity(.5),
                                   ),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                      text:
-                                          '(${travelList[widget.id].distance}km)',
-                                      style: const TextStyle(
-                                        color: Colors.black,
-                                      ),
+                                ]),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            'assets/images/pin.png',
+                            width: 20,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                                text: travelList[widget.id].location,
+                                style: TextStyle(
+                                  color: Colors.black87.withOpacity(.5),
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text:
+                                        '(${travelList[widget.id].distance}km)',
+                                    style: const TextStyle(
+                                      color: Colors.black,
                                     ),
-                                  ]),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                                  ),
+                                ]),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  FadeAnimation(
-                    delay: .3,
-                    child: Text(
-                      travelList[widget.id].description,
+                  Text(travelList[widget.id].description,
                       style: const TextStyle(
                         color: Color(0xff686771),
                         fontWeight: FontWeight.w400,
                         fontSize: 18,
-                      ),
-                    ),
-                  ),
+                      )),
                   const SizedBox(
                     height: 20,
                   ),
-                  FadeAnimation(
-                    delay: .4,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10)),
+                          border: Border.all(
+                            color: const Color(0xff8f294f),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.favorite_border,
+                          color: Color(0xff8f294f),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: const EdgeInsets.all(9),
                           decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10)),
+                            color: const Color(0xff8f294f),
                             border: Border.all(
                               color: const Color(0xff8f294f),
                             ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10)),
                           ),
-                          child: const Icon(
-                            Icons.favorite_border,
-                            color: Color(0xff8f294f),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.all(9),
-                            decoration: BoxDecoration(
-                              color: const Color(0xff8f294f),
-                              border: Border.all(
-                                color: const Color(0xff8f294f),
-                              ),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'Discover',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                ),
+                          child: const Center(
+                            child: Text(
+                              'Discover',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18.0,
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               ),

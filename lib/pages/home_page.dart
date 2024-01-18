@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                 Radius.circular(10),
               ),
               child: Image.asset(
-                "assets/images/profile.png",
+                "assets/images/profile.jpg",
                 width: 40,
                 height: 40,
               ),
